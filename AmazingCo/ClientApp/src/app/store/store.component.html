@@ -1,0 +1,60 @@
+<div class="container">
+  <h4>Our Current Promotions</h4>
+  <div class="row">
+    <div class="currentPromotions">
+      <ul>
+        <li *ngFor='let promotion of promotions'>
+          <p>{{promotion.eventName}}, {{promotion.description}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Cost</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let experience of experiences'>
+            <td>{{experience.eventType}}</td>
+            <td>${{experience.eventCost}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="addToCart(experience.id)">Add</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Cost</th>
+          <th>Discount Applied</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let items of cartItems'>
+          <td>{{items.eventName}}</td>
+          <td>{{items.quantity}}</td>
+          <td>{{items.subTotal}}</td>
+          <td style="color: orangered; font-style: italic; font-size: smaller">{{items.appliedDiscounts}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
